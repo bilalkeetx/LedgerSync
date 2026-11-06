@@ -1,0 +1,10 @@
+/* LedgerSync Layout scoped styles */
+
+a.navbar-brand {
+  white-space: normal;
+  word-break: normal;
+}
+
+.footer {
+  width: 100%;
+}
