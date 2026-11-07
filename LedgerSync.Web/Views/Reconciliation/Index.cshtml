@@ -1,571 +1,170 @@
 @{
-    ViewData["Title"] = "Tally Desk - Bilateral Statement Reconciliation";
+    ViewData["Title"] = "Tally Reconciliation Desk";
 }
 
-<div class="container-fluid px-lg-4 py-4">
-
+<div class="container-xl py-5">
     <!-- Breadcrumb & Header -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 pb-2 border-bottom">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-2" data-aos="fade-up">
         <div>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-1 small">
-                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-decoration-none">Home</a></li>
+                <ol class="breadcrumb mb-1 small text-muted">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-decoration-none text-muted">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Tally Desk</li>
-                    <li class="breadcrumb-item active" aria-current="page">Statement Reconciliation</li>
                 </ol>
             </nav>
-            <h2 class="h3 fw-bold text-dark mb-0 d-flex align-items-center gap-2">
-                <span>Tally Desk Statement Ingestion &amp; Discrepancy Matcher</span>
-                <span class="badge bg-success-subtle text-success border border-success-subtle fs-7 rounded-pill">Continuous Sync Engine</span>
-            </h2>
+            <h3 class="fw-bold text-dark mb-0">Discrepancy Matcher & Ledger Tally</h3>
+            <p class="text-muted small mt-1">Side-by-side reconciliation between Seller Delivery Orders and Buyer Inward Goods</p>
         </div>
-
-        <div class="d-flex gap-2">
-            <a class="btn btn-outline-primary btn-sm px-3 rounded-pill d-flex align-items-center gap-1" asp-controller="Deals" asp-action="Create">
-                <i class="bi bi-plus-circle"></i>
-                <span>Capture New Deal</span>
+        <div class="d-flex gap-2 mt-3 mt-md-0">
+            <a asp-controller="Deals" asp-action="Create" class="btn btn-outline-dark px-3 py-2 rounded-2 small fw-medium">
+                <i class="bi bi-plus-circle me-1"></i> Capture Deal
             </a>
-            <button type="button" class="btn btn-dark btn-sm px-3 rounded-pill d-flex align-items-center gap-1" id="btnExportBreaks">
-                <i class="bi bi-download"></i>
-                <span>Export Break Sheet</span>
+            <button class="btn btn-dark px-3 py-2 rounded-2 small fw-medium">
+                <i class="bi bi-file-earmark-spreadsheet me-1"></i> Export Tally Report
             </button>
         </div>
     </div>
 
-    <!-- KPI Summary Metrics Strip -->
-    <div class="row g-3 mb-4">
-        <div class="col-6 col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 ls-card">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="text-secondary small fw-semibold text-uppercase">Ingested Records</span>
-                    <span class="badge bg-secondary-subtle text-dark rounded-circle p-1"><i class="bi bi-journal-text"></i></span>
-                </div>
-                <div class="fs-4 fw-bold text-dark" id="kpiTotal">148 Records</div>
-                <div class="text-muted small" style="font-size: 0.78rem;">Across 42 Delivery Orders</div>
+    <!-- KPI Summary Row with Adequate Breathing Space -->
+    <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card h-100 p-4 border bg-white shadow-none">
+                <div class="text-muted small fw-semibold text-uppercase tracking-wide mb-2">Ingested Invoices</div>
+                <div class="fs-2 fw-bold text-dark mb-1">148 Records</div>
+                <div class="text-muted small">Across 42 Delivery Orders</div>
             </div>
         </div>
-
-        <div class="col-6 col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 ls-card border-start border-4 border-success">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="text-secondary small fw-semibold text-uppercase">Matched &amp; Balanced</span>
-                    <span class="badge bg-success-subtle text-success rounded-circle p-1"><i class="bi bi-check2-circle"></i></span>
-                </div>
-                <div class="fs-4 fw-bold text-success" id="kpiMatched">132 (89.2%)</div>
-                <div class="text-success small" style="font-size: 0.78rem;">Zero-Discrepancy Invariant</div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card h-100 p-4 border border-success-subtle bg-white shadow-none">
+                <div class="text-success small fw-semibold text-uppercase tracking-wide mb-2">Matched & Balanced</div>
+                <div class="fs-2 fw-bold text-success mb-1">132 (89.2%)</div>
+                <div class="text-muted small">Zero Discrepancy Verified</div>
             </div>
         </div>
-
-        <div class="col-6 col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 ls-card border-start border-4 border-warning">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="text-secondary small fw-semibold text-uppercase">Weight / Rate Variances</span>
-                    <span class="badge bg-warning-subtle text-warning rounded-circle p-1"><i class="bi bi-exclamation-triangle"></i></span>
-                </div>
-                <div class="fs-4 fw-bold text-warning" id="kpiVariances">11 (7.4%)</div>
-                <div class="text-secondary small" style="font-size: 0.78rem;">Transit &amp; Rate Delta Breaks</div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card h-100 p-4 border border-warning-subtle bg-white shadow-none">
+                <div class="text-warning-emphasis small fw-semibold text-uppercase tracking-wide mb-2">Weight / Rate Variances</div>
+                <div class="fs-2 fw-bold text-warning-emphasis mb-1">11 (7.4%)</div>
+                <div class="text-muted small">Transit Shortage & Rate Deltas</div>
             </div>
         </div>
-
-        <div class="col-6 col-lg-3">
-            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 ls-card border-start border-4 border-danger">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="text-secondary small fw-semibold text-uppercase">Missing / Unmatched</span>
-                    <span class="badge bg-danger-subtle text-danger rounded-circle p-1"><i class="bi bi-x-octagon"></i></span>
-                </div>
-                <div class="fs-4 fw-bold text-danger" id="kpiMissing">5 (3.4%)</div>
-                <div class="text-secondary small" style="font-size: 0.78rem;">Missing in Counterparty Book</div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card h-100 p-4 border border-danger-subtle bg-white shadow-none">
+                <div class="text-danger small fw-semibold text-uppercase tracking-wide mb-2">Missing Inward Books</div>
+                <div class="fs-2 fw-bold text-danger mb-1">5 (3.4%)</div>
+                <div class="text-muted small">Unacknowledged Dispatch Bills</div>
             </div>
         </div>
     </div>
 
-    <!-- Drag-and-Drop Statement Ingestion Card -->
-    <div class="card border-0 shadow-sm rounded-4 mb-4 ls-card overflow-hidden">
-        <div class="card-header bg-dark text-white px-4 py-3 border-0 d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-2">
-                <span class="navbar-brand-badge" style="width: 28px; height: 28px; font-size: 0.85rem;">
-                    <i class="bi bi-cloud-arrow-up"></i>
-                </span>
-                <span class="fw-semibold small text-uppercase tracking-wider">Statement Ingestion &amp; Batch Feed Intake</span>
+    <!-- Ledger Table Matrix -->
+    <div class="card border bg-white shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-4 border-bottom d-flex flex-wrap justify-content-between align-items-center gap-3 bg-white">
+            <div>
+                <h5 class="fw-bold mb-1 text-dark">Bilateral Transaction Variance Matrix</h5>
+                <p class="text-muted small mb-0">Comparing Seller Dispatch Weights against Buyer Destination Dharam Kanta receipts</p>
             </div>
-            <span class="badge bg-info-subtle text-info border border-info-subtle small ls-code-badge">CSV &bull; XLSX &bull; EDI &bull; MT940</span>
-        </div>
-
-        <div class="card-body p-4 bg-white">
-            <form method="post" asp-controller="Reconciliation" asp-action="Index" enctype="multipart/form-data" id="statementUploadForm">
-                
-                <div class="row g-4 align-items-center">
-                    
-                    <!-- Drag and Drop Dropzone -->
-                    <div class="col-12 col-lg-8">
-                        <div class="p-4 p-md-5 rounded-4 border-2 border-dashed text-center position-relative transition-all" id="dropZone" style="border: 2px dashed #94a3b8; background-color: #f8fafc; cursor: pointer;">
-                            <input type="file" id="statementFileInput" name="StatementFile" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" accept=".csv, .xlsx, .xls, .edi, .xml, .txt" />
-                            
-                            <div class="d-flex flex-column align-items-center justify-content-center">
-                                <div class="rounded-circle bg-primary bg-opacity-10 text-primary p-3 mb-3" style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="bi bi-cloud-arrow-up-fill fs-2"></i>
-                                </div>
-                                <h5 class="fw-bold text-dark mb-1" id="dropZoneTitle">Drag &amp; Drop Counterparty Statements Here</h5>
-                                <p class="text-secondary small mb-3" id="dropZoneSubtitle">
-                                    Drop seller bills of lading, buyer weighbridge receipts, or ERP extracts (CSV, XLSX, MT940) or <span class="text-primary fw-semibold text-decoration-underline">Browse Files</span>
-                                </p>
-                                <div class="d-flex flex-wrap justify-content-center gap-2 small text-muted">
-                                    <span class="badge bg-light text-secondary border px-2 py-1"><i class="bi bi-filetype-csv me-1"></i> Party A Dispatch.csv</span>
-                                    <span class="badge bg-light text-secondary border px-2 py-1"><i class="bi bi-filetype-xlsx me-1"></i> Party B Inward.xlsx</span>
-                                    <span class="badge bg-light text-secondary border px-2 py-1"><i class="bi bi-file-earmark-code me-1"></i> EDI-214 / EDI-856</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ingestion Controls & Demo Data Loader -->
-                    <div class="col-12 col-lg-4">
-                        <div class="p-3 rounded-4 bg-light border border-secondary border-opacity-25 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <h6 class="fw-bold text-dark mb-2 d-flex align-items-center gap-2">
-                                    <i class="bi bi-gear-wide-connected text-primary"></i>
-                                    <span>Ingestion Parameters</span>
-                                </h6>
-                                
-                                <div class="mb-3">
-                                    <label for="scopeParty" class="form-label text-secondary small mb-1 fw-semibold">Target Counterparty</label>
-                                    <select class="form-select form-select-sm bg-white" id="scopeParty">
-                                        <option value="ALL">All Counterparties (Global Reconciliation)</option>
-                                        <option value="ALPHA" selected>Sabir Vegetable Oil (Seller Book)</option>
-                                        <option value="APEX">Faisal Feeds (Buyer Book)</option>
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="toleranceTolerance" class="form-label text-secondary small mb-1 fw-semibold">Transit Weight Tolerance</label>
-                                    <select class="form-select form-select-sm bg-white" id="toleranceTolerance">
-                                        <option value="0.25">0.25% Normal Moisture / Tare Tolerance</option>
-                                        <option value="0.50" selected>0.50% Standard Bulk Commodity Tolerance</option>
-                                        <option value="1.00">1.00% High Dispersion Tolerance</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="d-grid gap-2 pt-2">
-                                <button type="button" class="btn btn-outline-primary btn-sm rounded-pill fw-semibold py-2 d-flex align-items-center justify-content-center gap-2" id="btnSimulateSample">
-                                    <i class="bi bi-arrow-repeat"></i>
-                                    <span>Reload Bilateral Batch Data</span>
-                                </button>
-                                <button type="submit" class="btn btn-primary btn-sm rounded-pill fw-semibold py-2 shadow-sm d-flex align-items-center justify-content-center gap-2">
-                                    <i class="bi bi-lightning-charge-fill"></i>
-                                    <span>Run Invariant Engine</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-    <!-- Split-Screen Discrepancy Table Preview -->
-    <div class="card border-0 shadow-sm rounded-4 ls-card overflow-hidden">
-        
-        <!-- Table Controls & Filter Bar -->
-        <div class="card-header bg-dark text-white p-3 p-md-4 border-0">
-            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
-                
-                <div>
-                    <h5 class="fw-bold mb-1 d-flex align-items-center gap-2">
-                        <span>Split-Screen Discrepancy Preview</span>
-                        <span class="badge bg-secondary-subtle text-light ls-code-badge">FY 2026-2027</span>
-                    </h5>
-                    <div class="text-secondary small">
-                        Side-by-side ledger verification comparing Seller Dispatched Records vs. Buyer Received Records.
-                    </div>
-                </div>
-
-                <!-- Interactive Filter Buttons -->
-                <div class="d-flex flex-wrap align-items-center gap-2">
-                    <div class="btn-group btn-group-sm p-1 bg-black bg-opacity-40 rounded-pill border border-secondary border-opacity-25" role="group">
-                        <button type="button" class="btn btn-sm text-white rounded-pill px-3 active filter-btn" data-filter="all">
-                            All (<span id="countAll">148</span>)
-                        </button>
-                        <button type="button" class="btn btn-sm text-white rounded-pill px-3 filter-btn" data-filter="matched">
-                            <span class="text-success"><i class="bi bi-circle-fill me-1" style="font-size: 0.6rem;"></i></span> Matched (132)
-                        </button>
-                        <button type="button" class="btn btn-sm text-white rounded-pill px-3 filter-btn" data-filter="variance">
-                            <span class="text-warning"><i class="bi bi-circle-fill me-1" style="font-size: 0.6rem;"></i></span> Variances (11)
-                        </button>
-                        <button type="button" class="btn btn-sm text-white rounded-pill px-3 filter-btn" data-filter="missing">
-                            <span class="text-danger"><i class="bi bi-circle-fill me-1" style="font-size: 0.6rem;"></i></span> Missing (5)
-                        </button>
-                    </div>
-
-                    <!-- Search Box -->
-                    <div class="input-group input-group-sm" style="width: 220px;">
-                        <span class="input-group-text bg-black bg-opacity-40 border-secondary border-opacity-25 text-secondary">
-                            <i class="bi bi-search"></i>
-                        </span>
-                        <input type="text" class="form-control bg-black bg-opacity-40 border-secondary border-opacity-25 text-white" id="searchTableInput" placeholder="Filter D.O. or Truck..." />
-                    </div>
-                </div>
-
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-dark px-3 rounded-2">All (148)</button>
+                <button class="btn btn-sm btn-outline-secondary px-3 rounded-2">Matched (132)</button>
+                <button class="btn btn-sm btn-outline-secondary px-3 rounded-2">Variances (11)</button>
+                <button class="btn btn-sm btn-outline-secondary px-3 rounded-2">Missing (5)</button>
             </div>
         </div>
 
-        <!-- Discrepancy Table -->
         <div class="table-responsive">
-            <table class="table table-hover align-middle mb-0" id="discrepancyTable">
-                <thead class="table-light border-bottom text-secondary small text-uppercase fw-semibold" style="font-size: 0.75rem;">
+            <table class="table table-hover align-middle mb-0" style="font-size: 0.9rem;">
+                <thead class="table-light text-muted text-uppercase" style="font-size: 0.75rem; letter-spacing: 0.05em;">
                     <tr>
-                        <th class="ps-4">Identifiers</th>
-                        <th>Party A &bull; Seller Dispatched</th>
-                        <th>Party B &bull; Buyer Received</th>
-                        <th>Variance Analysis</th>
-                        <th>Status</th>
-                        <th class="pe-4 text-end">Action</th>
+                        <th class="ps-4 py-3">Identifiers</th>
+                        <th class="py-3">Party A (Seller Dispatched)</th>
+                        <th class="py-3">Party B (Buyer Received)</th>
+                        <th class="py-3">Variance Analysis</th>
+                        <th class="py-3">Status</th>
+                        <th class="text-end pe-4 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <!-- Row 1: Matched -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88401</div>
-                        <div class="text-muted small">LHR-TK-1049 &bull; Soyabean Meal (Hi-Pro)</div>
-                    </td>
-                    <td>
-                        <div>48.200 MT (964 Bags)</div>
-                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 72,000 | Net: PKR 7,808,400</div>
-                    </td>
-                    <td>
-                        <div>48.200 MT (964 Bags)</div>
-                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 72,000 | Net: PKR 7,808,400</div>
-                    </td>
-                    <td>
-                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
-                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
-                    </td>
-                </tr>
+                    <!-- Row 1: Balanced -->
+                    <tr>
+                        <td class="ps-4 py-3">
+                            <div class="fw-bold text-dark">DO-2026-88401</div>
+                            <div class="text-muted small">LHR-TK-1049 &bull; Soyabean Meal</div>
+                        </td>
+                        <td>
+                            <div class="fw-medium">48.200 MT (964 Bags)</div>
+                            <div class="text-muted small">PKR 162.00 / Kg &bull; Net: PKR 7,808,400</div>
+                        </td>
+                        <td>
+                            <div class="fw-medium">48.200 MT (964 Bags)</div>
+                            <div class="text-muted small">PKR 162.00 / Kg &bull; Net: PKR 7,808,400</div>
+                        </td>
+                        <td>
+                            <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
+                            <div class="text-muted small">Variance: Balanced</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <button class="btn btn-sm btn-outline-secondary rounded-2">Attested</button>
+                        </td>
+                    </tr>
 
-                <!-- Row 2: Weight Variance -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88402</div>
-                        <div class="text-muted small">FSD-TK-7714 &bull; Canola Meal</div>
-                    </td>
-                    <td>
-                        <div>52.400 MT (1,048 Bags)</div>
-                        <div class="text-muted small">PKR 115.00 / Kg &bull; Freight: PKR 84,000 | Net: PKR 6,026,000</div>
-                    </td>
-                    <td>
-                        <div>51.900 MT (1,038 Bags)</div>
-                        <div class="text-muted small">PKR 115.00 / Kg &bull; Freight: PKR 84,000 | Net: PKR 5,968,500</div>
-                    </td>
-                    <td>
-                        <span class="text-danger small fw-semibold"><i class="bi bi-dash-circle"></i> -0.500 MT (-0.95%)</span>
-                        <div class="text-muted small">Rate: Aligned | Settlement Delta: -PKR 57,500</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Weight Variance</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-dark">Arbitrate</button>
-                    </td>
-                </tr>
+                    <!-- Row 2: Weight Variance -->
+                    <tr>
+                        <td class="ps-4 py-3">
+                            <div class="fw-bold text-dark">DO-2026-88402</div>
+                            <div class="text-muted small">FSD-TK-7714 &bull; Canola Meal</div>
+                        </td>
+                        <td>
+                            <div class="fw-medium">52.400 MT (1,048 Bags)</div>
+                            <div class="text-muted small">PKR 115.00 / Kg &bull; Net: PKR 6,026,000</div>
+                        </td>
+                        <td>
+                            <div class="fw-medium">51.900 MT (1,038 Bags)</div>
+                            <div class="text-muted small">PKR 115.00 / Kg &bull; Net: PKR 5,968,500</div>
+                        </td>
+                        <td>
+                            <span class="text-danger small fw-semibold"><i class="bi bi-dash-circle"></i> -0.500 MT (-0.95%)</span>
+                            <div class="text-muted small">Settlement Delta: -PKR 57,500</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Weight Variance</span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <button class="btn btn-sm btn-outline-dark rounded-2">Arbitrate</button>
+                        </td>
+                    </tr>
 
-                <!-- Row 3: Matched -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88403</div>
-                        <div class="text-muted small">MLT-TK-4491 &bull; Cotton Seed Cake (Khal)</div>
-                    </td>
-                    <td>
-                        <div>42.150 MT (843 Bags)</div>
-                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 63,000 | Net: PKR 3,582,750</div>
-                    </td>
-                    <td>
-                        <div>42.150 MT (843 Bags)</div>
-                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 63,000 | Net: PKR 3,582,750</div>
-                    </td>
-                    <td>
-                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
-                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
-                    </td>
-                </tr>
-
-                <!-- Row 4: Missing Inward Record -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88404</div>
-                        <div class="text-muted small">OK-TK-9021 &bull; Corn/Maize</div>
-                    </td>
-                    <td>
-                        <div>39.800 MT (796 Bags)</div>
-                        <div class="text-muted small">PKR 72.00 / Kg &bull; Freight: PKR 59,700 | Net: PKR 2,865,600</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1"><i class="bi bi-exclamation-triangle"></i> No Record in Buyer Inward Book</span>
-                    </td>
-                    <td>
-                        <span class="text-danger small fw-semibold"><i class="bi bi-x-circle"></i> Unacknowledged Dispatch</span>
-                        <div class="text-muted small">Full Ledger Break: PKR 2,865,600</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Missing Record</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-danger">Issue Claim</button>
-                    </td>
-                </tr>
-
-                <!-- Row 5: Rate Variance -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88405</div>
-                        <div class="text-muted small">SWL-TK-3310 &bull; Rice Bran Meal</div>
-                    </td>
-                    <td>
-                        <div>45.000 MT (900 Bags)</div>
-                        <div class="text-muted small text-danger fw-semibold">Seller Rate: PKR 68.00 / Kg</div>
-                        <div class="text-muted small">Freight: PKR 67,500 | Net: PKR 3,060,000</div>
-                    </td>
-                    <td>
-                        <div>45.000 MT (900 Bags)</div>
-                        <div class="text-muted small text-danger fw-semibold">Buyer Rate: PKR 65.00 / Kg</div>
-                        <div class="text-muted small">Freight: PKR 67,500 | Net: PKR 2,925,000</div>
-                    </td>
-                    <td>
-                        <span class="text-danger small fw-semibold"><i class="bi bi-tag"></i> PKR 3.00 / Kg Rate Delta</span>
-                        <div class="text-muted small">Settlement Delta: -PKR 135,000</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Rate Variance</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-dark">Inspect</button>
-                    </td>
-                </tr>
-
-                <!-- Row 6: Matched -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88406</div>
-                        <div class="text-muted small">CHN-TK-6102 &bull; Soyabean Meal</div>
-                    </td>
-                    <td>
-                        <div>36.750 MT (735 Bags)</div>
-                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 55,125 | Net: PKR 5,953,500</div>
-                    </td>
-                    <td>
-                        <div>36.750 MT (735 Bags)</div>
-                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 55,125 | Net: PKR 5,953,500</div>
-                    </td>
-                    <td>
-                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
-                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
-                    </td>
-                </tr>
-
-                <!-- Row 7: Ghost Inward Booking -->
-                <tr>
-                    <td class="ps-3">
-                        <div class="fw-semibold text-dark">DO-2026-88407</div>
-                        <div class="text-muted small">SGD-TK-1193 &bull; Cotton Seed Cake (Khal)</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-secondary-subtle text-secondary border px-2 py-1"><i class="bi bi-question-circle"></i> Not Present in Seller Outward Book</span>
-                    </td>
-                    <td>
-                        <div>28.400 MT (568 Bags)</div>
-                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 42,600 | Net: PKR 2,414,000</div>
-                    </td>
-                    <td>
-                        <span class="text-danger small fw-semibold"><i class="bi bi-shield-x"></i> Ghost Inward Booking</span>
-                        <div class="text-muted small">Unmatched Buyer Claim: -PKR 2,414,000</div>
-                    </td>
-                    <td>
-                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Missing Record</span>
-                    </td>
-                    <td class="text-end pe-3">
-                        <button class="btn btn-sm btn-outline-danger">Call Desk</button>
-                    </td>
-                </tr>
-            </tbody>
+                    <!-- Row 3: Missing Inward Record -->
+                    <tr>
+                        <td class="ps-4 py-3">
+                            <div class="fw-bold text-dark">DO-2026-88404</div>
+                            <div class="text-muted small">OK-TK-9021 &bull; Yellow Corn / Maize</div>
+                        </td>
+                        <td>
+                            <div class="fw-medium">39.800 MT (796 Bags)</div>
+                            <div class="text-muted small">PKR 72.00 / Kg &bull; Net: PKR 2,865,600</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">
+                                <i class="bi bi-exclamation-triangle"></i> Not in Buyer Inward Book
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-danger small fw-semibold"><i class="bi bi-x-circle"></i> Full Ledger Break</span>
+                            <div class="text-muted small">Discrepancy: PKR 2,865,600</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Missing Record</span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <button class="btn btn-sm btn-outline-danger rounded-2">Issue Claim</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-
-        <!-- Table Footer / Legend -->
-        <div class="card-footer bg-light p-3 border-top d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-secondary">
-            <div class="d-flex align-items-center gap-3">
-                <span class="d-inline-flex align-items-center gap-1">
-                    <span class="badge bg-success rounded-circle p-1"></span> Matched (Green)
-                </span>
-                <span class="d-inline-flex align-items-center gap-1">
-                    <span class="badge bg-warning rounded-circle p-1"></span> Weight/Rate Variance (Yellow)
-                </span>
-                <span class="d-inline-flex align-items-center gap-1">
-                    <span class="badge bg-danger rounded-circle p-1"></span> Missing Records (Red)
-                </span>
-            </div>
-
-            <div class="d-flex align-items-center gap-2">
-                <span>Showing <strong id="visibleRowCount">7</strong> representative sample records</span>
-                <a class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1" asp-controller="Deals" asp-action="Create">
-                    <i class="bi bi-plus-circle me-1"></i> New Trade Deal
-                </a>
-            </div>
-        </div>
-
     </div>
-
 </div>
-
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Drag and Drop Ingestion Zone Interactive Handlers
-            const dropZone = document.getElementById('dropZone');
-            const fileInput = document.getElementById('statementFileInput');
-            const dropZoneTitle = document.getElementById('dropZoneTitle');
-            const dropZoneSubtitle = document.getElementById('dropZoneSubtitle');
-
-            if (dropZone && fileInput) {
-                ['dragenter', 'dragover'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        dropZone.style.borderColor = '#2563eb';
-                        dropZone.style.backgroundColor = '#eff6ff';
-                    }, false);
-                });
-
-                ['dragleave', 'drop'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        dropZone.style.borderColor = '#94a3b8';
-                        dropZone.style.backgroundColor = '#f8fafc';
-                    }, false);
-                });
-
-                dropZone.addEventListener('drop', function (e) {
-                    const dt = e.dataTransfer;
-                    const files = dt.files;
-                    if (files.length > 0) {
-                        handleFileSelection(files[0].name);
-                    }
-                });
-
-                fileInput.addEventListener('change', function () {
-                    if (fileInput.files.length > 0) {
-                        handleFileSelection(fileInput.files[0].name);
-                    }
-                });
-            }
-
-            function handleFileSelection(fileName) {
-                if (dropZoneTitle && dropZoneSubtitle) {
-                    dropZoneTitle.innerHTML = '<span class="text-success"><i class="bi bi-file-earmark-check-fill me-1"></i> ' + fileName + '</span>';
-                    dropZoneSubtitle.textContent = 'Statement successfully staged for bilateral invariant matching. Click "Run Invariant Engine" to execute.';
-                    dropZone.style.borderColor = '#10b981';
-                    dropZone.style.backgroundColor = '#ecfdf5';
-                }
-            }
-
-            // Interactive Table Filter Pills
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const rows = document.querySelectorAll('.discrepancy-row');
-            const visibleCountEl = document.getElementById('visibleRowCount');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const filter = this.getAttribute('data-filter');
-                    let visibleCount = 0;
-
-                    rows.forEach(row => {
-                        const rowStatus = row.getAttribute('data-status');
-                        if (filter === 'all' || rowStatus === filter) {
-                            row.style.display = '';
-                            visibleCount++;
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    });
-
-                    if (visibleCountEl) {
-                        visibleCountEl.textContent = visibleCount;
-                    }
-                });
-            });
-
-            // Search Table Input Filter
-            const searchInput = document.getElementById('searchTableInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function () {
-                    const query = this.value.toLowerCase().trim();
-                    let visibleCount = 0;
-
-                    rows.forEach(row => {
-                        const text = row.textContent.toLowerCase();
-                        if (text.includes(query)) {
-                            row.style.display = '';
-                            visibleCount++;
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    });
-
-                    if (visibleCountEl) {
-                        visibleCountEl.textContent = visibleCount;
-                    }
-                });
-            }
-
-            // Simulate Sample Reload Button
-            const btnSimulate = document.getElementById('btnSimulateSample');
-            if (btnSimulate) {
-                btnSimulate.addEventListener('click', function () {
-                    btnSimulate.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status"></span> Ingesting...';
-                    setTimeout(() => {
-                        btnSimulate.innerHTML = '<i class="bi bi-check-circle-fill text-success me-1"></i> Data Refreshed';
-                        handleFileSelection('Sabir_vs_Faisal_Bilateral_Nov2026.xlsx');
-                        setTimeout(() => {
-                            btnSimulate.innerHTML = '<i class="bi bi-arrow-repeat me-1"></i> Reload Bilateral Batch Data';
-                        }, 2500);
-                    }, 600);
-                });
-            }
-
-            // Export Sheet Alert
-            const btnExport = document.getElementById('btnExportBreaks');
-            if (btnExport) {
-                btnExport.addEventListener('click', function () {
-                    btnExport.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status"></span> Generating CSV...';
-                    setTimeout(() => {
-                        btnExport.innerHTML = '<i class="bi bi-download me-1"></i> Export Break Sheet';
-                        alert('Bilateral Discrepancy Break Sheet exported successfully (11 Variances, 5 Missing Records).');
-                    }, 600);
-                });
-            }
-        });
-    </script>
-}
