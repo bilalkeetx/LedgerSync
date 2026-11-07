@@ -224,247 +224,189 @@
                         <th class="pe-4 text-end">Action</th>
                     </tr>
                 </thead>
-                <tbody class="small">
+                <tbody>
+                <!-- Row 1: Matched -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88401</div>
+                        <div class="text-muted small">LHR-TK-1049 &bull; Soyabean Meal (Hi-Pro)</div>
+                    </td>
+                    <td>
+                        <div>48.200 MT (964 Bags)</div>
+                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 72,000 | Net: PKR 7,808,400</div>
+                    </td>
+                    <td>
+                        <div>48.200 MT (964 Bags)</div>
+                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 72,000 | Net: PKR 7,808,400</div>
+                    </td>
+                    <td>
+                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
+                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 1: Matched (Green) -->
-                    <tr class="discrepancy-row row-matched table-success bg-success bg-opacity-10" data-status="matched">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88401</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>LHR-TK-1049</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Soyabean Meal (Hi-Pro)</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">48.200 MT (964 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 162.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 72,000.00 | Net: PKR 7,808,400.00</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">48.200 MT (964 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 162.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 72,000.00 | Net: PKR 7,808,400.00</div>
-                        </td>
-                        <td>
-                            <div class="text-success fw-bold"><i class="bi bi-check-lg me-1"></i>0.000 MT Delta</div>
-                            <div class="text-success small">Rate Invariant: Balanced</div>
-                            <div class="text-muted small">Settlement Delta: PKR 0.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-success text-white px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-check-circle-fill"></i> Matched
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-outline-success rounded-pill px-2 py-0" title="Attested Consensus">
-                                <i class="bi bi-file-earmark-check"></i> Attested
-                            </button>
-                        </td>
-                    </tr>
+                <!-- Row 2: Weight Variance -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88402</div>
+                        <div class="text-muted small">FSD-TK-7714 &bull; Canola Meal</div>
+                    </td>
+                    <td>
+                        <div>52.400 MT (1,048 Bags)</div>
+                        <div class="text-muted small">PKR 115.00 / Kg &bull; Freight: PKR 84,000 | Net: PKR 6,026,000</div>
+                    </td>
+                    <td>
+                        <div>51.900 MT (1,038 Bags)</div>
+                        <div class="text-muted small">PKR 115.00 / Kg &bull; Freight: PKR 84,000 | Net: PKR 5,968,500</div>
+                    </td>
+                    <td>
+                        <span class="text-danger small fw-semibold"><i class="bi bi-dash-circle"></i> -0.500 MT (-0.95%)</span>
+                        <div class="text-muted small">Rate: Aligned | Settlement Delta: -PKR 57,500</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Weight Variance</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-dark">Arbitrate</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 2: Weight Variance (Yellow) -->
-                    <tr class="discrepancy-row row-variance table-warning bg-warning bg-opacity-10" data-status="variance">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88402</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>FSD-TK-7714</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Canola Meal</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">52.400 MT (1,048 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 115.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 84,000.00 | Net: PKR 6,026,000.00</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">51.900 MT (1,038 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 115.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 84,000.00 | Net: PKR 5,968,500.00</div>
-                        </td>
-                        <td>
-                            <div class="text-warning fw-bold text-dark"><i class="bi bi-dash-circle me-1"></i>-0.500 MT (-0.95%)</div>
-                            <div class="text-secondary small">Rate Invariant: Aligned</div>
-                            <div class="text-danger small fw-semibold">Settlement Delta: -PKR 57,500.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-exclamation-triangle-fill"></i> Weight Variance
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-warning rounded-pill px-2 py-0" title="Approve Weighbridge Tolerance">
-                                <i class="bi bi-sliders"></i> Arbitrate
-                            </button>
-                        </td>
-                    </tr>
+                <!-- Row 3: Matched -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88403</div>
+                        <div class="text-muted small">MLT-TK-4491 &bull; Cotton Seed Cake (Khal)</div>
+                    </td>
+                    <td>
+                        <div>42.150 MT (843 Bags)</div>
+                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 63,000 | Net: PKR 3,582,750</div>
+                    </td>
+                    <td>
+                        <div>42.150 MT (843 Bags)</div>
+                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 63,000 | Net: PKR 3,582,750</div>
+                    </td>
+                    <td>
+                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
+                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 3: Matched (Green) -->
-                    <tr class="discrepancy-row row-matched table-success bg-success bg-opacity-10" data-status="matched">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88403</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>MLT-TK-4491</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Cotton Seed Cake (Khal)</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">42.150 MT (843 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 85.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 63,000.00 | Net: PKR 3,582,750.00</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">42.150 MT (843 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 85.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 63,000.00 | Net: PKR 3,582,750.00</div>
-                        </td>
-                        <td>
-                            <div class="text-success fw-bold"><i class="bi bi-check-lg me-1"></i>0.000 MT Delta</div>
-                            <div class="text-success small">Rate Invariant: Balanced</div>
-                            <div class="text-muted small">Settlement Delta: PKR 0.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-success text-white px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-check-circle-fill"></i> Matched
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-outline-success rounded-pill px-2 py-0" title="Attested Consensus">
-                                <i class="bi bi-file-earmark-check"></i> Attested
-                            </button>
-                        </td>
-                    </tr>
+                <!-- Row 4: Missing Inward Record -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88404</div>
+                        <div class="text-muted small">OK-TK-9021 &bull; Corn/Maize</div>
+                    </td>
+                    <td>
+                        <div>39.800 MT (796 Bags)</div>
+                        <div class="text-muted small">PKR 72.00 / Kg &bull; Freight: PKR 59,700 | Net: PKR 2,865,600</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1"><i class="bi bi-exclamation-triangle"></i> No Record in Buyer Inward Book</span>
+                    </td>
+                    <td>
+                        <span class="text-danger small fw-semibold"><i class="bi bi-x-circle"></i> Unacknowledged Dispatch</span>
+                        <div class="text-muted small">Full Ledger Break: PKR 2,865,600</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Missing Record</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-danger">Issue Claim</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 4: Missing Record in Buyer Book (Red) -->
-                    <tr class="discrepancy-row row-missing table-danger bg-danger bg-opacity-10" data-status="missing">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88404</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>OK-TK-9021</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Corn/Maize</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">39.800 MT (796 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 72.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 59,700.00 | Net: PKR 2,865,600.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle p-2">
-                                <i class="bi bi-file-earmark-x me-1"></i> No Record in Buyer Inward Book
-                            </span>
-                        </td>
-                        <td>
-                            <div class="text-danger fw-bold"><i class="bi bi-x-circle me-1"></i>Unacknowledged Dispatch</div>
-                            <div class="text-danger small">Full Ledger Break</div>
-                            <div class="text-danger small fw-semibold">Discrepancy: PKR 2,865,600.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger text-white px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-x-circle-fill"></i> Missing Record
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-danger rounded-pill px-2 py-0" title="Dispatch POD Notice">
-                                <i class="bi bi-send-exclamation"></i> Issue Claim
-                            </button>
-                        </td>
-                    </tr>
+                <!-- Row 5: Rate Variance -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88405</div>
+                        <div class="text-muted small">SWL-TK-3310 &bull; Rice Bran Meal</div>
+                    </td>
+                    <td>
+                        <div>45.000 MT (900 Bags)</div>
+                        <div class="text-muted small text-danger fw-semibold">Seller Rate: PKR 68.00 / Kg</div>
+                        <div class="text-muted small">Freight: PKR 67,500 | Net: PKR 3,060,000</div>
+                    </td>
+                    <td>
+                        <div>45.000 MT (900 Bags)</div>
+                        <div class="text-muted small text-danger fw-semibold">Buyer Rate: PKR 65.00 / Kg</div>
+                        <div class="text-muted small">Freight: PKR 67,500 | Net: PKR 2,925,000</div>
+                    </td>
+                    <td>
+                        <span class="text-danger small fw-semibold"><i class="bi bi-tag"></i> PKR 3.00 / Kg Rate Delta</span>
+                        <div class="text-muted small">Settlement Delta: -PKR 135,000</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1">Rate Variance</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-dark">Inspect</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 5: Rate Variance (Yellow) -->
-                    <tr class="discrepancy-row row-variance table-warning bg-warning bg-opacity-10" data-status="variance">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88405</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>SWL-TK-3310</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Rice Bran Meal</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">45.000 MT (900 Bags)</div>
-                            <div class="text-danger fw-semibold small">Seller Rate: PKR 68.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 67,500.00 | Net: PKR 3,060,000.00</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">45.000 MT (900 Bags)</div>
-                            <div class="text-danger fw-semibold small">Buyer Rate: PKR 65.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 67,500.00 | Net: PKR 2,925,000.00</div>
-                        </td>
-                        <td>
-                            <div class="text-success small fw-semibold"><i class="bi bi-check-lg me-1"></i>Weight Aligned</div>
-                            <div class="text-danger fw-bold"><i class="bi bi-tag-fill me-1"></i>PKR 3.00 / Kg Rate Delta</div>
-                            <div class="text-danger small fw-semibold">Settlement Delta: -PKR 135,000.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-exclamation-triangle-fill"></i> Rate Variance
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-outline-dark rounded-pill px-2 py-0" title="Inspect Contract Amendment">
-                                <i class="bi bi-search"></i> Inspect
-                            </button>
-                        </td>
-                    </tr>
+                <!-- Row 6: Matched -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88406</div>
+                        <div class="text-muted small">CHN-TK-6102 &bull; Soyabean Meal</div>
+                    </td>
+                    <td>
+                        <div>36.750 MT (735 Bags)</div>
+                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 55,125 | Net: PKR 5,953,500</div>
+                    </td>
+                    <td>
+                        <div>36.750 MT (735 Bags)</div>
+                        <div class="text-muted small">PKR 162.00 / Kg &bull; Freight: PKR 55,125 | Net: PKR 5,953,500</div>
+                    </td>
+                    <td>
+                        <span class="text-success small fw-medium"><i class="bi bi-check2"></i> 0.000 MT Delta</span>
+                        <div class="text-muted small">Rate Invariant: Balanced | Delta: PKR 0.00</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">Matched</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-secondary">Attested</button>
+                    </td>
+                </tr>
 
-                    <!-- RECORD 6: Matched (Green) -->
-                    <tr class="discrepancy-row row-matched table-success bg-success bg-opacity-10" data-status="matched">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88406</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>CHN-TK-6102</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Soyabean Meal</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">36.750 MT (735 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 162.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 55,125.00 | Net: PKR 5,953,500.00</div>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">36.750 MT (735 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 162.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 55,125.00 | Net: PKR 5,953,500.00</div>
-                        </td>
-                        <td>
-                            <div class="text-success fw-bold"><i class="bi bi-check-lg me-1"></i>0.000 MT Delta</div>
-                            <div class="text-success small">Rate Invariant: Balanced</div>
-                            <div class="text-muted small">Settlement Delta: PKR 0.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-success text-white px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-check-circle-fill"></i> Matched
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-outline-success rounded-pill px-2 py-0" title="Attested Consensus">
-                                <i class="bi bi-file-earmark-check"></i> Attested
-                            </button>
-                        </td>
-                    </tr>
-
-                    <!-- RECORD 7: Missing Record in Seller Book (Red) -->
-                    <tr class="discrepancy-row row-missing table-danger bg-danger bg-opacity-10" data-status="missing">
-                        <td class="ps-4">
-                            <div class="fw-bold text-dark ls-code-badge">DO-2026-88407</div>
-                            <div class="text-secondary small"><i class="bi bi-truck me-1"></i>SGD-TK-1193</div>
-                            <div class="text-muted" style="font-size: 0.72rem;">Cotton Seed Cake (Khal)</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle p-2">
-                                <i class="bi bi-file-earmark-x me-1"></i> Not Present in Seller Outward Book
-                            </span>
-                        </td>
-                        <td>
-                            <div class="fw-bold text-dark">28.400 MT (568 Bags)</div>
-                            <div class="text-secondary small">Rate: PKR 85.00 / Kg</div>
-                            <div class="text-muted small">Freight: PKR 42,600.00 | Net: PKR 2,414,000.00</div>
-                        </td>
-                        <td>
-                            <div class="text-danger fw-bold"><i class="bi bi-x-circle me-1"></i>Ghost Inward Booking</div>
-                            <div class="text-danger small">Unmatched Buyer Claim</div>
-                            <div class="text-danger small fw-semibold">Discrepancy: -PKR 2,414,000.00</div>
-                        </td>
-                        <td>
-                            <span class="badge bg-danger text-white px-2 py-1 rounded-pill d-inline-flex align-items-center gap-1">
-                                <i class="bi bi-x-circle-fill"></i> Missing Record
-                            </span>
-                        </td>
-                        <td class="pe-4 text-end">
-                            <button type="button" class="btn btn-sm btn-danger rounded-pill px-2 py-0" title="Request Origin Proof">
-                                <i class="bi bi-telephone-outbound"></i> Call Desk
-                            </button>
-                        </td>
-                    </tr>
-
-                </tbody>
+                <!-- Row 7: Ghost Inward Booking -->
+                <tr>
+                    <td class="ps-3">
+                        <div class="fw-semibold text-dark">DO-2026-88407</div>
+                        <div class="text-muted small">SGD-TK-1193 &bull; Cotton Seed Cake (Khal)</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-secondary-subtle text-secondary border px-2 py-1"><i class="bi bi-question-circle"></i> Not Present in Seller Outward Book</span>
+                    </td>
+                    <td>
+                        <div>28.400 MT (568 Bags)</div>
+                        <div class="text-muted small">PKR 85.00 / Kg &bull; Freight: PKR 42,600 | Net: PKR 2,414,000</div>
+                    </td>
+                    <td>
+                        <span class="text-danger small fw-semibold"><i class="bi bi-shield-x"></i> Ghost Inward Booking</span>
+                        <div class="text-muted small">Unmatched Buyer Claim: -PKR 2,414,000</div>
+                    </td>
+                    <td>
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Missing Record</span>
+                    </td>
+                    <td class="text-end pe-3">
+                        <button class="btn btn-sm btn-outline-danger">Call Desk</button>
+                    </td>
+                </tr>
+            </tbody>
             </table>
         </div>
 

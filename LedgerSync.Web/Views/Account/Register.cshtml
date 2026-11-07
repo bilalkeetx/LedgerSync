@@ -1,189 +1,67 @@
 @{
-    ViewData["Title"] = "Register Tenant Organization";
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Register Tenant Firm";
 }
 
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+<h5 class="fw-bold text-dark mb-1">Register Firm / Tenant</h5>
+<p class="text-muted small mb-4">Join LedgerSync bilateral trading & tally network</p>
 
-            <!-- Registration Card -->
-            <div class="card border-0 shadow-sm rounded-4 overflow-hidden ls-card">
-                
-                <!-- Card Header -->
-                <div class="card-header bg-dark text-white p-4 text-center border-0" style="background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 90%);">
-                    <div class="d-inline-flex align-items-center justify-content-center mb-2">
-                        <span class="navbar-brand-badge" style="width: 44px; height: 44px; font-size: 1.25rem;">
-                            <i class="bi bi-building-add"></i>
-                        </span>
-                    </div>
-                    <h4 class="fw-bold text-white mb-1">Register Institutional Tenant</h4>
-                    <p class="text-secondary small mb-0">Join the LedgerSync Bilateral Settlement &amp; Tally Network</p>
-                </div>
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div class="mb-3">
+        <label class="form-label small fw-semibold">Firm Legal Name</label>
+        <input type="text" class="form-control" placeholder="e.g. Sabir Vegetable Oil" required />
+    </div>
 
-                <!-- Card Body -->
-                <div class="card-body p-4 p-sm-5 bg-white">
-                    <form method="post" asp-controller="Account" asp-action="Register" novalidate>
-                        
-                        <!-- Section: Organization Profile -->
-                        <div class="mb-4">
-                            <h6 class="fw-bold text-dark text-uppercase small tracking-wider mb-3 pb-1 border-bottom d-flex align-items-center gap-2">
-                                <i class="bi bi-building text-primary"></i>
-                                <span>Entity &amp; Tenant Credentials</span>
-                            </h6>
+    <div class="mb-3">
+        <label class="form-label small fw-semibold">National Tax / Sales Tax ID (NTN / STRN)</label>
+        <input type="text" class="form-control" placeholder="e.g. 1428590-7" required />
+    </div>
 
-                            <div class="row g-3">
-                                <div class="col-md-7">
-                                    <label for="tenantLegalName" class="form-label fw-semibold text-dark small mb-1">
-                                        Institution / Firm Legal Name
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-briefcase"></i>
-                                        </span>
-                                        <input type="text" class="form-control bg-light border-start-0" id="tenantLegalName" name="TenantName" placeholder="e.g. Alpha Capital Markets LLC" required />
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <label for="leiCode" class="form-label fw-semibold text-dark small mb-1">
-                                        NTN / STRN #
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-hash"></i>
-                                        </span>
-                                        <input type="text" class="form-control bg-light border-start-0 ls-code-badge" id="leiCode" name="LeiCode" placeholder="5493006MHB..." maxlength="20" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="mb-3">
+        <label class="form-label small fw-semibold">Work / Corporate Email</label>
+        <input type="email" class="form-control" placeholder="procurement@firm.com.pk" required />
+    </div>
 
-                        <!-- Section: Operator Authentication -->
-                        <div class="mb-4">
-                            <h6 class="fw-bold text-dark text-uppercase small tracking-wider mb-3 pb-1 border-bottom d-flex align-items-center gap-2">
-                                <i class="bi bi-shield-lock text-info"></i>
-                                <span>Account Credentials</span>
-                            </h6>
-
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="registerEmail" class="form-label fw-semibold text-dark small mb-1">
-                                    Corporate / Institutional Email
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-secondary border-end-0">
-                                        <i class="bi bi-envelope"></i>
-                                    </span>
-                                    <input type="email" class="form-control bg-light border-start-0" id="registerEmail" name="Email" placeholder="officer@alphacapital.com" required autocomplete="email" />
-                                </div>
-                                <div class="form-text text-muted small">Must correspond to registered corporate entity domain.</div>
-                            </div>
-
-                            <!-- Password & Confirmation -->
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="registerPassword" class="form-label fw-semibold text-dark small mb-1">
-                                        Master Password
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-key"></i>
-                                        </span>
-                                        <input type="password" class="form-control bg-light border-start-0" id="registerPassword" name="Password" placeholder="Minimum 12 characters" required autocomplete="new-password" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="confirmPassword" class="form-label fw-semibold text-dark small mb-1">
-                                        Confirm Password
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-shield-check"></i>
-                                        </span>
-                                        <input type="password" class="form-control bg-light border-start-0" id="confirmPassword" name="ConfirmPassword" placeholder="Re-enter password" required autocomplete="new-password" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Section: Accounting Period & Operating Role -->
-                        <div class="mb-4">
-                            <h6 class="fw-bold text-dark text-uppercase small tracking-wider mb-3 pb-1 border-bottom d-flex align-items-center gap-2">
-                                <i class="bi bi-sliders text-success"></i>
-                                <span>Desk Scope &amp; Role Provisioning</span>
-                            </h6>
-
-                            <div class="row g-3">
-                                <!-- Fiscal Accounting Year Selector -->
-                                <div class="col-md-6">
-                                    <label for="regFiscalYear" class="form-label fw-semibold text-dark small mb-1">
-                                        Fiscal Accounting Year
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-calendar-range"></i>
-                                        </span>
-                                        <select class="form-select bg-light border-start-0" id="regFiscalYear" name="FiscalYear" required>
-                                            <option value="FY 2026-2027" selected>FY 2026-2027 (Active Period)</option>
-                                            <option value="FY 2025-2026">FY 2025-2026 (Audited Baseline)</option>
-                                            <option value="FY 2027-2028">FY 2027-2028 (Forward Planning)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-text text-muted small">Default reporting ledger period for this tenant.</div>
-                                </div>
-
-                                <!-- Role Selection Dropdown -->
-                                <div class="col-md-6">
-                                    <label for="regRole" class="form-label fw-semibold text-dark small mb-1">
-                                        Role Selection
-                                    </label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-secondary border-end-0">
-                                            <i class="bi bi-person-badge"></i>
-                                        </span>
-                                        <select class="form-select bg-light border-start-0" id="regRole" name="Role" required>
-                                            <option value="Admin" selected>Admin (Root Tenant Administrator)</option>
-                                            <option value="Broker Operator">Broker Operator (Deal Capture &amp; Trading)</option>
-                                            <option value="Accountant">Accountant (Tally &amp; Ledger Reconciliation)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-text text-muted small">Initial permission tier for the root user.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Governance Agreement -->
-                        <div class="p-3 bg-light rounded-3 border mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="termsCheck" name="AgreeToTerms" required checked />
-                                <label class="form-check-label small text-secondary" for="termsCheck">
-                                    We acknowledge adherence to the <strong>Bilateral Settlement Rules</strong>, SOC2 Type II cryptographic attestation policies, and continuous invariant tally protocols.
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn btn-info text-dark w-100 py-2 rounded-pill fw-semibold shadow-sm d-flex align-items-center justify-content-center gap-2">
-                            <i class="bi bi-building-add"></i>
-                            <span>Register &amp; Provision Tenant Desk</span>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Card Footer -->
-                <div class="card-footer bg-light p-3 text-center border-top small">
-                    <span class="text-secondary">Already onboarded as a registered counterparty?</span>
-                    <a asp-controller="Account" asp-action="Login" class="fw-semibold text-primary text-decoration-none ms-1">
-                        Sign In
-                    </a>
-                </div>
-            </div>
-
-            <!-- Security Assurance Note -->
-            <div class="text-center mt-3 text-secondary small">
-                <i class="bi bi-shield-check me-1 text-success"></i>
-                <span>Tenant data isolation guaranteed via AES-256 ledger volume segregation</span>
-            </div>
-
+    <div class="row g-2 mb-3">
+        <div class="col-sm-6">
+            <label class="form-label small fw-semibold">Password</label>
+            <input type="password" class="form-control" placeholder="••••••••" required />
+        </div>
+        <div class="col-sm-6">
+            <label class="form-label small fw-semibold">Confirm Password</label>
+            <input type="password" class="form-control" placeholder="••••••••" required />
         </div>
     </div>
+
+    <div class="row g-2 mb-3">
+        <div class="col-sm-6">
+            <label class="form-label small fw-semibold">Fiscal Period</label>
+            <select class="form-select">
+                <option selected>FY 2026-2027</option>
+                <option>FY 2025-2026</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label class="form-label small fw-semibold">Primary Role</label>
+            <select class="form-select">
+                <option selected>Tenant Admin</option>
+                <option>Broker Operator</option>
+                <option>Accountant</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="terms" required checked />
+        <label class="form-check-label small text-muted" for="terms">
+            Acknowledge adherence to standard bilateral settlement rules.
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-dark w-100 py-2 fw-medium">Register & Provision Firm</button>
+</form>
+
+<div class="text-center mt-3 pt-3 border-top small">
+    <span class="text-muted">Already registered?</span>
+    <a asp-controller="Account" asp-action="Login" class="text-decoration-none fw-semibold">Sign in here</a>
 </div>
