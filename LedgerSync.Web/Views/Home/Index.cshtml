@@ -1,32 +1,33 @@
 @{
-    ViewData["Title"] = "Dual-Party Trade Settlement & Continuous Ledger Reconciliation";
+    ViewData["Title"] = "Dual-Party Trade Settlement & Ledger Sync";
 }
 
-<!-- Enterprise Hero Banner -->
-<section class="position-relative overflow-hidden text-white py-5" style="background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 75%);">
-    <div class="container px-lg-4 py-4 position-relative">
+<!-- Hero Banner -->
+<section class="position-relative overflow-hidden text-white py-4 py-md-5" style="background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 85%);">
+    <div class="container px-3 px-md-4 py-3 position-relative">
         <div class="row align-items-center gy-4">
-            <div class="col-lg-7">
-                <!-- FIXED (Single Clean Enterprise Pill): -->
-<div class="mb-4">
-    <span class="badge rounded-pill bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 fw-medium" style="font-size: 0.85rem;">
-        <i class="bi bi-shield-check me-1"></i> Multi-Party Commodity Ledger 
-    </span>
-</div>
-                <h1 class="display-5 fw-bold tracking-tight text-white mb-3">
-                    Zero-Discrepancy Dual-Party Trade Settlement & Continuous Ledger Sync
+            <div class="col-12 col-lg-7">
+                <div class="mb-3">
+                    <span class="badge rounded-pill bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 fw-semibold small">
+                        <i class="bi bi-shield-check me-1"></i> Multi-Party Commodity Ledger
+                    </span>
+                </div>
+                
+                <h1 class="display-6 display-md-5 fw-bold tracking-tight text-white mb-3">
+                    Bilateral Trade Settlement &amp; Continuous Ledger Sync
                 </h1>
-                <p class="lead text-secondary mb-4 fs-6 pe-lg-4" style="line-height: 1.7;">
-                    Empower institutional trading desks and counterparties with simultaneous deal verification, automated bilateral confirmation, and real-time reconciliation tallying. Eliminate post-trade breaks before clearing.
+                
+                <p class="text-secondary mb-4 fs-6 pe-lg-3" style="line-height: 1.6;">
+                    Enable counterparty desks with simultaneous deal verification, automated bilateral confirmation, and real-time reconciliation tallying. Eliminate post-trade breaks before clearing.
                 </p>
 
-                <!-- Action Button Group using ASP.NET Tag Helpers -->
-                <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
-                    <a class="btn btn-info btn-lg text-dark fw-semibold px-4 py-2 rounded-pill shadow-sm d-flex align-items-center gap-2" asp-controller="Deals" asp-action="Create">
+                <!-- Actions -->
+                <div class="d-flex flex-wrap gap-2 gap-sm-3 align-items-center mb-4">
+                    <a class="btn btn-info text-dark fw-semibold px-4 py-2 rounded-pill shadow-sm d-flex align-items-center gap-2" asp-controller="Deals" asp-action="Create">
                         <i class="bi bi-file-earmark-plus"></i>
                         <span>Enter Deal Desk</span>
                     </a>
-                    <a class="btn btn-outline-light btn-lg fw-medium px-4 py-2 rounded-pill d-flex align-items-center gap-2" asp-controller="Reconciliation" asp-action="Index">
+                    <a class="btn btn-outline-light fw-medium px-4 py-2 rounded-pill d-flex align-items-center gap-2" asp-controller="Reconciliation" asp-action="Index">
                         <i class="bi bi-arrow-left-right text-info"></i>
                         <span>Open Tally Desk</span>
                     </a>
@@ -36,70 +37,69 @@
                     </a>
                 </div>
 
-                <!-- Live Metrics Strip -->
-                <div class="row g-3 pt-3 border-top border-secondary border-opacity-25">
+                <!-- Metrics Strip -->
+                <div class="row g-2 g-sm-3 pt-3 border-top border-secondary border-opacity-25 text-center text-sm-start">
                     <div class="col-4 col-sm-3">
-                        <div class="fw-bold text-white fs-5 mb-0">PKR 450M+</div>
-                        <div class="text-secondary small">Monthly Traded</div>
+                        <div class="fw-bold text-white fs-6 fs-sm-5 mb-0">PKR 450M+</div>
+                        <div class="text-secondary small" style="font-size: 0.75rem;">Monthly Volume</div>
                     </div>
                     <div class="col-4 col-sm-3">
-                        <div class="fw-bold text-info fs-5 mb-0">Real-time</div>
-                        <div class="text-secondary small">Auto Tally</div>
+                        <div class="fw-bold text-info fs-6 fs-sm-5 mb-0">Autonomous</div>
+                        <div class="text-secondary small" style="font-size: 0.75rem;">Auto-Tally</div>
                     </div>
                     <div class="col-4 col-sm-3">
-                        <div class="fw-bold text-success fs-5 mb-0">100%</div>
-                        <div class="text-secondary small">Variance Tracking</div>
-                    </div>
-                    <div class="col-12 col-sm-3 d-none d-sm-block">
-                        <div class="fw-bold text-warning fs-5 mb-0">Zero</div>
-                        <div class="text-secondary small">Ledger Discrepancy</div>
+                        <div class="fw-bold text-success fs-6 fs-sm-5 mb-0">Zero Breaks</div>
+                        <div class="text-secondary small" style="font-size: 0.75rem;">Bilateral Sync</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Graphic / Quick Status Indicator Card -->
-            <div class="col-lg-5">
-                <div class="card bg-dark border-secondary border-opacity-50 shadow-lg rounded-4 overflow-hidden">
-                    <div class="card-header bg-black bg-opacity-40 border-bottom border-secondary border-opacity-25 px-4 py-3 d-flex justify-content-between align-items-center">
+            <!-- Hero Live Status Card -->
+            <div class="col-12 col-lg-5">
+                <div class="card bg-dark border-secondary border-opacity-50 shadow rounded-4 overflow-hidden">
+                    <div class="card-header bg-black bg-opacity-40 border-bottom border-secondary border-opacity-25 px-3 px-md-4 py-3 d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center gap-2">
                             <span class="badge bg-success-subtle text-success border border-success-subtle rounded-circle p-1"></span>
-                            <span class="small fw-semibold text-light">Chowk Shah Abbas Trading Desk</span>
+                            <span class="small fw-semibold text-light text-truncate">Chowk Shah Abbas Desk</span>
                         </div>
-                        <span class="badge bg-secondary-subtle text-light ls-code-badge">BATCH #1,849,203</span>
+                        <span class="badge bg-secondary-subtle text-light font-monospace small">BATCH #1849203</span>
                     </div>
-                    <div class="card-body p-4 text-light">
+                    
+                    <div class="card-body p-3 p-md-4 text-light">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="text-secondary small">Bilateral Handshake State</span>
-                            <span class="badge bg-info-subtle text-info border border-info-subtle px-2 py-1">Fully Synchronized</span>
+                            <span class="text-secondary small">Bilateral Handshake</span>
+                            <span class="badge bg-info-subtle text-info border border-info-subtle px-2 py-1">Synchronized</span>
                         </div>
 
-                        <!-- Mini Visual Settlement Pipeline -->
+                        <!-- Mini Trade Pipeline -->
                         <div class="d-flex flex-column gap-2 mb-3">
                             <div class="p-2 rounded bg-black bg-opacity-50 border border-secondary border-opacity-25 d-flex justify-content-between align-items-center small">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-building text-info"></i>
-                                    <span>Party A: Sabir Vegetable Oil (Okara)</span>
+                                <div class="d-flex align-items-center gap-2 text-truncate me-2">
+                                    <i class="bi bi-building text-info flex-shrink-0"></i>
+                                    <span class="text-truncate">Party A: Sabir Vegetable Oil</span>
                                 </div>
-                                <span class="badge bg-success text-white"><i class="bi bi-check2"></i> Signed</span>
+                                <span class="badge bg-success text-white flex-shrink-0"><i class="bi bi-check2"></i> Signed</span>
                             </div>
+
                             <div class="text-center text-secondary small py-0 my-0">
-                                <i class="bi bi-arrow-down-up text-info"></i> Dual Contract Matching
+                                <i class="bi bi-arrow-down-up text-info"></i> Invariant Match
                             </div>
+
                             <div class="p-2 rounded bg-black bg-opacity-50 border border-secondary border-opacity-25 d-flex justify-content-between align-items-center small">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-globe2 text-warning"></i>
-                                    <span>Party B: Faisal Feeds (Chiniot)</span>
+                                <div class="d-flex align-items-center gap-2 text-truncate me-2">
+                                    <i class="bi bi-globe2 text-warning flex-shrink-0"></i>
+                                    <span class="text-truncate">Party B: Faisal Feeds</span>
                                 </div>
-                                <span class="badge bg-success text-white"><i class="bi bi-check2"></i> Signed</span>
+                                <span class="badge bg-success text-white flex-shrink-0"><i class="bi bi-check2"></i> Signed</span>
                             </div>
                         </div>
 
                         <div class="p-3 rounded-3 bg-black border border-secondary border-opacity-25 small text-secondary">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span>Double-Entry Verification</span>
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span>Double-Entry Proof</span>
                                 <span class="text-success fw-semibold"><i class="bi bi-shield-fill-check"></i> PASS (0 Deltas)</span>
                             </div>
-                            <div class="d-flex justify-content-between ls-code-badge text-muted">
+                            <div class="d-flex justify-content-between font-monospace text-muted small" style="font-size: 0.75rem;">
                                 <span>REF: VR-88419-OKR</span>
                                 <span>TALLY: BALANCED</span>
                             </div>
@@ -111,156 +111,158 @@
     </div>
 </section>
 
-<!-- Main Interactive Trade Preview & Platform Highlights Section -->
-<div class="container px-lg-4 py-5">
+<!-- Interactive Trade Settlement Explorer -->
+<div class="container px-3 px-md-4 py-4 py-md-5">
     
-    <!-- Section Title -->
-    <div class="row justify-content-center text-center mb-5">
-        <div class="col-lg-8">
+    <div class="row justify-content-center text-center mb-4">
+        <div class="col-12 col-lg-8">
             <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1 rounded-pill small fw-semibold text-uppercase tracking-wider">
                 Live Interactive Inspection
             </span>
-            <h2 class="display-6 fw-bold text-dark mt-2 mb-3">
+            <h2 class="h3 fw-bold text-dark mt-2 mb-2">
                 Dual-Party Trade Settlement Explorer
             </h2>
-            <p class="text-secondary leading-relaxed">
-                Inspect how LedgerSync records and reconciles a live bilateral transaction between buyer and seller institutions. Toggle between counterpart views, audit double-entry ledger proofs, and simulate live invariant tally verification.
+            <p class="text-secondary small leading-relaxed mb-0">
+                Inspect how LedgerSync records and balances transactions across buyer and seller books in real time.
             </p>
         </div>
     </div>
 
-    <!-- Interactive Static Summary Preview Card of a Dual-Party Trade Deal -->
+    <!-- Settlement Card -->
     <div class="card shadow-sm border-0 rounded-4 overflow-hidden mb-5">
-        <!-- Interactive Card Top Bar -->
+        
+        <!-- Header & Nav Tabs -->
         <div class="card-header bg-dark text-white p-3 p-md-4 border-0">
             <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
                 <div class="d-flex flex-wrap align-items-center gap-2">
-                    <span class="badge bg-info text-dark fw-bold px-2 py-1 ls-code-badge">DEAL-2026-88419</span>
-                    <span class="badge bg-dark-subtle text-light border border-secondary px-2 py-1">Soyabean Seed Meal (Hi-Pro)</span>
+                    <span class="badge bg-info text-dark fw-bold font-monospace px-2 py-1">DEAL-2026-88419</span>
+                    <span class="badge bg-dark-subtle text-light border border-secondary px-2 py-1 text-truncate">Soyabean Seed Meal (Hi-Pro)</span>
                     <span class="badge bg-success-subtle text-success border border-success-subtle d-inline-flex align-items-center gap-1 px-2 py-1">
-                        <span class="spinner-grow spinner-grow-sm text-success" style="width: 0.5rem; height: 0.5rem;" role="status"></span>
-                        Verified &amp; Matched
+                        <span class="spinner-grow spinner-grow-sm text-success" style="width: 0.45rem; height: 0.45rem;" role="status"></span>
+                        Matched
                     </span>
                 </div>
 
-                <!-- Interactive View Switcher Tabs -->
-                <ul class="nav nav-pills bg-black bg-opacity-40 p-1 rounded-pill border border-secondary border-opacity-25" id="dealPreviewTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active rounded-pill px-3 py-1 small text-white" id="tab-bilateral-btn" data-bs-toggle="pill" data-bs-target="#tab-bilateral" type="button" role="tab" aria-selected="true">
-                            <i class="bi bi-intersect me-1"></i> Bilateral View
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-party-a-btn" data-bs-toggle="pill" data-bs-target="#tab-party-a" type="button" role="tab" aria-selected="false">
-                            <i class="bi bi-building me-1"></i> Sabir Vegetable Oil (Okara)
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-party-b-btn" data-bs-toggle="pill" data-bs-target="#tab-party-b" type="button" role="tab" aria-selected="false">
-                            <i class="bi bi-globe me-1"></i> Faisal Feeds (Chiniot)
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-reconcile-btn" data-bs-toggle="pill" data-bs-target="#tab-reconcile" type="button" role="tab" aria-selected="false">
-                            <i class="bi bi-check-all me-1"></i> Tally Audit
-                        </button>
-                    </li>
-                </ul>
+                <!-- Tabs -->
+                <div class="overflow-x-auto pb-1 pb-lg-0">
+                    <ul class="nav nav-pills bg-black bg-opacity-40 p-1 rounded-pill border border-secondary border-opacity-25 flex-nowrap text-nowrap" id="dealPreviewTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active rounded-pill px-3 py-1 small text-white" id="tab-bilateral-btn" data-bs-toggle="pill" data-bs-target="#tab-bilateral" type="button" role="tab" aria-selected="true">
+                                <i class="bi bi-intersect me-1"></i> Bilateral View
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-party-a-btn" data-bs-toggle="pill" data-bs-target="#tab-party-a" type="button" role="tab" aria-selected="false">
+                                <i class="bi bi-building me-1"></i> Party A (Seller)
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-party-b-btn" data-bs-toggle="pill" data-bs-target="#tab-party-b" type="button" role="tab" aria-selected="false">
+                                <i class="bi bi-globe me-1"></i> Party B (Buyer)
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link rounded-pill px-3 py-1 small text-white" id="tab-reconcile-btn" data-bs-toggle="pill" data-bs-target="#tab-reconcile" type="button" role="tab" aria-selected="false">
+                                <i class="bi bi-check-all me-1"></i> Tally Audit
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Deal Tab Content -->
-        <div class="card-body p-4 bg-white">
+        <!-- Tab Content -->
+        <div class="card-body p-3 p-md-4 bg-white">
             <div class="tab-content" id="dealPreviewTabContent">
                 
-                <!-- TAB 1: Bilateral Comparison View (Side by Side) -->
+                <!-- TAB 1: Bilateral Comparison -->
                 <div class="tab-pane fade show active" id="tab-bilateral" role="tabpanel">
-                    <div class="row g-4 align-items-stretch">
+                    <div class="row g-3 g-lg-4 align-items-stretch">
                         
-                        <!-- Party A Column -->
-                        <div class="col-md-5">
+                        <!-- Party A -->
+                        <div class="col-12 col-lg-5">
                             <div class="p-3 rounded-3 border border-primary border-opacity-25 bg-primary bg-opacity-10 h-100">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="badge bg-primary text-white p-2 rounded-circle"><i class="bi bi-building"></i></div>
-                                        <div>
-                                            <h6 class="mb-0 fw-bold text-dark">Sabir Vegetable Oil (Okara)</h6>
-                                            <span class="text-secondary small">Role: Seller (Supplier) &bull; Tenant #T-0041</span>
+                                    <div class="d-flex align-items-center gap-2 text-truncate me-2">
+                                        <div class="badge bg-primary text-white p-2 rounded-circle flex-shrink-0"><i class="bi bi-building"></i></div>
+                                        <div class="text-truncate">
+                                            <h6 class="mb-0 fw-bold text-dark text-truncate">Sabir Vegetable Oil (Okara)</h6>
+                                            <span class="text-secondary small">Seller &bull; Tenant #T-0041</span>
                                         </div>
                                     </div>
-                                    <span class="badge bg-success-subtle text-success border border-success-subtle">Signed</span>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle flex-shrink-0">Signed</span>
                                 </div>
 
                                 <div class="list-group list-group-flush bg-transparent small">
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Trader Desk:</span>
-                                        <span class="fw-semibold text-dark">Okara Solvent Extraction Plant Desk</span>
+                                        <span class="fw-semibold text-dark text-truncate ms-2">Okara Solvent Extraction</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Quantity:</span>
                                         <span class="fw-bold text-dark">37,500 Kg (750 Bags)</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
-                                        <span class="text-secondary">Fixed Contract Price:</span>
+                                        <span class="text-secondary">Fixed Rate:</span>
                                         <span class="fw-bold text-dark">PKR 162.00 / Kg</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
-                                        <span class="text-secondary">Gross Deal Notional:</span>
+                                        <span class="text-secondary">Gross Amount:</span>
                                         <span class="fw-bold text-primary">PKR 6,075,000.00</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Clearing Account:</span>
-                                        <span class="ls-code-badge text-dark">HBL-OKR-9021-SABIR</span>
+                                        <span class="font-monospace text-dark text-truncate ms-2">HBL-OKR-9021</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Match Bridge Center Pillar -->
-                        <div class="col-md-2 d-flex flex-column align-items-center justify-content-center text-center py-3">
+                        <!-- Match Center Pillar -->
+                        <div class="col-12 col-lg-2 d-flex flex-column align-items-center justify-content-center text-center py-2 py-lg-3">
                             <div class="rounded-circle bg-success text-white p-3 shadow-sm mb-2">
                                 <i class="bi bi-link-45deg fs-4"></i>
                             </div>
                             <span class="badge bg-success text-white px-2 py-1 small mb-1">100% MATCH</span>
-                            <span class="text-secondary small ls-code-badge">&Delta; Diff: PKR 0.00</span>
-                            <div class="vr my-2 d-none d-md-block" style="height: 40px;"></div>
-                            <span class="text-muted small ls-code-badge" style="font-size: 0.75rem;">Automated Voucher Verification</span>
+                            <span class="text-secondary small font-monospace">&Delta; Diff: PKR 0.00</span>
+                            <div class="vr my-2 d-none d-lg-block" style="height: 30px;"></div>
+                            <span class="text-muted small font-monospace" style="font-size: 0.72rem;">Automated Verification</span>
                         </div>
 
-                        <!-- Party B Column -->
-                        <div class="col-md-5">
+                        <!-- Party B -->
+                        <div class="col-12 col-lg-5">
                             <div class="p-3 rounded-3 border border-info border-opacity-25 bg-info bg-opacity-10 h-100">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="badge bg-info text-dark p-2 rounded-circle"><i class="bi bi-globe2"></i></div>
-                                        <div>
-                                            <h6 class="mb-0 fw-bold text-dark">Faisal Feeds (Chiniot)</h6>
-                                            <span class="text-secondary small">Role: Buyer (Feed Mill) &bull; Tenant #T-0092</span>
+                                    <div class="d-flex align-items-center gap-2 text-truncate me-2">
+                                        <div class="badge bg-info text-dark p-2 rounded-circle flex-shrink-0"><i class="bi bi-globe2"></i></div>
+                                        <div class="text-truncate">
+                                            <h6 class="mb-0 fw-bold text-dark text-truncate">Faisal Feeds (Chiniot)</h6>
+                                            <span class="text-secondary small">Buyer &bull; Tenant #T-0092</span>
                                         </div>
                                     </div>
-                                    <span class="badge bg-success-subtle text-success border border-success-subtle">Signed</span>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle flex-shrink-0">Signed</span>
                                 </div>
 
                                 <div class="list-group list-group-flush bg-transparent small">
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Trader Desk:</span>
-                                        <span class="fw-semibold text-dark">Chiniot Feed Mill Procurement</span>
+                                        <span class="fw-semibold text-dark text-truncate ms-2">Chiniot Procurement</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Quantity:</span>
                                         <span class="fw-bold text-dark">37,500 Kg (750 Bags)</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
-                                        <span class="text-secondary">Fixed Contract Price:</span>
+                                        <span class="text-secondary">Fixed Rate:</span>
                                         <span class="fw-bold text-dark">PKR 162.00 / Kg</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
-                                        <span class="text-secondary">Gross Deal Notional:</span>
-                                        <span class="fw-bold text-info text-dark">PKR 6,075,000.00</span>
+                                        <span class="text-secondary">Gross Amount:</span>
+                                        <span class="fw-bold text-dark">PKR 6,075,000.00</span>
                                     </div>
                                     <div class="list-group-item bg-transparent d-flex justify-content-between px-0 py-2">
                                         <span class="text-secondary">Clearing Account:</span>
-                                        <span class="ls-code-badge text-dark">MCB-CHN-4481-FAISAL</span>
+                                        <span class="font-monospace text-dark text-truncate ms-2">MCB-CHN-4481</span>
                                     </div>
                                 </div>
                             </div>
@@ -269,30 +271,32 @@
                     </div>
                 </div>
 
-                <!-- TAB 2: Party A Details -->
+                <!-- TAB 2: Party A Audit -->
                 <div class="tab-pane fade" id="tab-party-a" role="tabpanel">
                     <div class="row g-3">
-                        <div class="col-md-6">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-person-badge me-1"></i> Tenant Metadata & Credentials</h6>
-                            <table class="table table-sm table-bordered">
-                                <tbody>
-                                    <tr><td class="text-secondary">Institution Legal Name</td><td class="fw-semibold">Sabir Vegetable Oil (Okara)</td></tr>
-                                    <tr><td class="text-secondary">NTN / Registration</td><td class="ls-code-badge">NTN: 2489102-7 (SECP Reg #0039218)</td></tr>
-                                    <tr><td class="text-secondary">Trading Book</td><td>SOYABEAN_MEAL_OKARA_PLANT</td></tr>
-                                    <tr><td class="text-secondary">Authorized Trader</td><td>Mian Tariq Sabir (ID: OKR-TR-104)</td></tr>
-                                    <tr><td class="text-secondary">Timestamp of Execution</td><td class="ls-code-badge">2026-11-06 23:48:19 UTC</td></tr>
-                                </tbody>
-                            </table>
+                        <div class="col-12 col-md-6">
+                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-person-badge me-1"></i> Tenant Metadata</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered small mb-0">
+                                    <tbody>
+                                        <tr><td class="text-secondary text-nowrap">Entity Name</td><td class="fw-semibold">Sabir Vegetable Oil (Okara)</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Tax NTN</td><td class="font-monospace">NTN: 2489102-7</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Trading Book</td><td>SOYABEAN_MEAL_OKARA</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Authorized Trader</td><td>Mian Tariq Sabir (OKR-TR-104)</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Executed At</td><td class="font-monospace">2026-11-06 23:48:19 UTC</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-journal-check me-1"></i> Double-Entry Ledger Audit</h6>
+                        <div class="col-12 col-md-6">
+                            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-journal-check me-1"></i> Double-Entry Voucher Audit</h6>
                             <div class="p-3 bg-light rounded-3 border">
                                 <div class="text-secondary small mb-1">Party A Delivery Order Sign-off:</div>
-                                <div class="p-2 bg-dark text-info rounded ls-code-badge small text-break mb-2">
+                                <div class="p-2 bg-dark text-info rounded font-monospace small text-break mb-2" style="font-size: 0.75rem;">
                                     DO-VOUCHER-OKR-2026-9F8841A1C37B42008719BC44D18090EF491950D892804BCE
                                 </div>
-                                <div class="d-flex justify-content-between small text-secondary">
-                                    <span>Verification Type: Authorized Dispatch Sign-off</span>
+                                <div class="d-flex justify-content-between align-items-center small text-secondary">
+                                    <span>Type: Dispatch Voucher</span>
                                     <span class="text-success"><i class="bi bi-check-circle-fill"></i> Verified Valid</span>
                                 </div>
                             </div>
@@ -300,30 +304,32 @@
                     </div>
                 </div>
 
-                <!-- TAB 3: Party B Details -->
+                <!-- TAB 3: Party B Audit -->
                 <div class="tab-pane fade" id="tab-party-b" role="tabpanel">
                     <div class="row g-3">
-                        <div class="col-md-6">
-                            <h6 class="fw-bold text-info text-dark mb-2"><i class="bi bi-person-badge me-1"></i> Counterparty Ledger Record</h6>
-                            <table class="table table-sm table-bordered">
-                                <tbody>
-                                    <tr><td class="text-secondary">Institution Legal Name</td><td class="fw-semibold">Faisal Feeds (Chiniot)</td></tr>
-                                    <tr><td class="text-secondary">NTN / Registration</td><td class="ls-code-badge">NTN: 3109482-1 (SECP Reg #0088192)</td></tr>
-                                    <tr><td class="text-secondary">Trading Book</td><td>RAW_MATERIAL_FEED_CHINIOT</td></tr>
-                                    <tr><td class="text-secondary">Authorized Trader</td><td>Chaudhry Faisal Rasheed (ID: CHN-TR-209)</td></tr>
-                                    <tr><td class="text-secondary">Timestamp of Execution</td><td class="ls-code-badge">2026-11-06 23:48:20 UTC</td></tr>
-                                </tbody>
-                            </table>
+                        <div class="col-12 col-md-6">
+                            <h6 class="fw-bold text-dark mb-2"><i class="bi bi-person-badge me-1"></i> Counterparty Record</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered small mb-0">
+                                    <tbody>
+                                        <tr><td class="text-secondary text-nowrap">Entity Name</td><td class="fw-semibold">Faisal Feeds (Chiniot)</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Tax NTN</td><td class="font-monospace">NTN: 3109482-1</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Trading Book</td><td>RAW_MATERIAL_FEED</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Authorized Trader</td><td>Chaudhry Faisal (CHN-TR-209)</td></tr>
+                                        <tr><td class="text-secondary text-nowrap">Executed At</td><td class="font-monospace">2026-11-06 23:48:20 UTC</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <h6 class="fw-bold text-info text-dark mb-2"><i class="bi bi-journal-check me-1"></i> Inward Goods Acceptance Audit</h6>
+                        <div class="col-12 col-md-6">
+                            <h6 class="fw-bold text-dark mb-2"><i class="bi bi-journal-check me-1"></i> Goods Acceptance Audit</h6>
                             <div class="p-3 bg-light rounded-3 border">
                                 <div class="text-secondary small mb-1">Party B Goods Receipt Sign-off:</div>
-                                <div class="p-2 bg-dark text-warning rounded ls-code-badge small text-break mb-2">
+                                <div class="p-2 bg-dark text-warning rounded font-monospace small text-break mb-2" style="font-size: 0.75rem;">
                                     GR-VOUCHER-CHN-2026-12C49B01AE4F882190BB520938B819A584901FC88A104081
                                 </div>
-                                <div class="d-flex justify-content-between small text-secondary">
-                                    <span>Verification Type: Weighbridge Inward Acceptance</span>
+                                <div class="d-flex justify-content-between align-items-center small text-secondary">
+                                    <span>Type: Weighbridge Inward</span>
                                     <span class="text-success"><i class="bi bi-check-circle-fill"></i> Verified Valid</span>
                                 </div>
                             </div>
@@ -335,32 +341,32 @@
                 <div class="tab-pane fade" id="tab-reconcile" role="tabpanel">
                     <div class="row g-3">
                         <div class="col-12">
-                            <div class="alert alert-success d-flex align-items-center gap-3 mb-3" role="alert">
-                                <i class="bi bi-check-circle-fill fs-3 text-success"></i>
+                            <div class="alert alert-success d-flex align-items-center gap-2 gap-md-3 mb-2" role="alert">
+                                <i class="bi bi-check-circle-fill fs-4 text-success flex-shrink-0"></i>
                                 <div>
                                     <div class="fw-bold">Zero-Discrepancy Reconciled Tally</div>
-                                    <div class="small">The autonomous reconciliation engine checked 6 bilateral invariant dimensions. No pricing breaks, volume deltas, or settlement currency variances were detected.</div>
+                                    <div class="small">The reconciliation engine evaluated 6 bilateral dimensions with 0 price breaks or volume deltas.</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="border rounded p-3 text-center">
-                                <div class="text-secondary small">Volume Reconciliation</div>
-                                <div class="fs-5 fw-bold text-success">0 Kg Delta</div>
-                                <div class="small text-muted">37,500 Kg (750 Bags) vs 37,500 Kg (750 Bags)</div>
+                        <div class="col-12 col-md-4">
+                            <div class="border rounded p-3 text-center h-100">
+                                <div class="text-secondary small">Volume Delta</div>
+                                <div class="fs-5 fw-bold text-success my-1">0 Kg Delta</div>
+                                <div class="small text-muted">37,500 Kg vs 37,500 Kg</div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="border rounded p-3 text-center">
+                        <div class="col-12 col-md-4">
+                            <div class="border rounded p-3 text-center h-100">
                                 <div class="text-secondary small">Price Invariant</div>
-                                <div class="fs-5 fw-bold text-success">PKR 0.00 Spread</div>
-                                <div class="small text-muted">PKR 162.00/Kg vs PKR 162.00/Kg</div>
+                                <div class="fs-5 fw-bold text-success my-1">PKR 0.00 Spread</div>
+                                <div class="small text-muted">PKR 162.00 vs PKR 162.00</div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="border rounded p-3 text-center">
-                                <div class="text-secondary small">Settlement Date Alignment</div>
-                                <div class="fs-5 fw-bold text-success">Aligned (T+2)</div>
+                        <div class="col-12 col-md-4">
+                            <div class="border rounded p-3 text-center h-100">
+                                <div class="text-secondary small">Settlement Alignment</div>
+                                <div class="fs-5 fw-bold text-success my-1">Aligned (T+2)</div>
                                 <div class="small text-muted">Nov 10, 2026</div>
                             </div>
                         </div>
@@ -370,75 +376,73 @@
             </div>
         </div>
 
-        <!-- Interactive Interactive Actions Bar -->
+        <!-- Card Footer -->
         <div class="card-footer bg-light p-3 border-top d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-            <div class="d-flex align-items-center gap-2 small">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-2 small">
                 <span class="text-secondary">Simulate live check:</span>
                 <button type="button" class="btn btn-sm btn-outline-dark rounded-pill px-3" id="btnRunVerification">
                     <i class="bi bi-arrow-repeat me-1" id="verificationIcon"></i>
-                    <span id="verificationStatus">Run Invariant Verification</span>
+                    <span id="verificationStatus">Run Verification</span>
                 </button>
-                <span class="text-muted ls-code-badge d-none d-lg-inline" id="verificationDetails">Bilateral Status: Certified</span>
+                <span class="text-muted font-monospace d-none d-lg-inline" id="verificationDetails">Bilateral Status: Certified</span>
             </div>
 
-            <div class="d-flex gap-2">
-                <a class="btn btn-sm btn-outline-primary rounded-pill px-3" asp-controller="Deals" asp-action="Create">
-                    <i class="bi bi-plus-circle me-1"></i> Create Bilateral Deal
+            <div class="d-flex gap-2 w-100 w-md-auto justify-content-end">
+                <a class="btn btn-sm btn-outline-primary rounded-pill px-3 flex-grow-1 flex-md-grow-0 text-center" asp-controller="Deals" asp-action="Create">
+                    <i class="bi bi-plus-circle me-1"></i> Capture Deal
                 </a>
-                <a class="btn btn-sm btn-primary rounded-pill px-3" asp-controller="Reconciliation" asp-action="Index">
+                <a class="btn btn-sm btn-primary rounded-pill px-3 flex-grow-1 flex-md-grow-0 text-center" asp-controller="Reconciliation" asp-action="Index">
                     <i class="bi bi-table me-1"></i> Full Tally Desk
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Platform Highlights Section -->
-    <div class="row justify-content-center text-center mt-5 mb-4">
-        <div class="col-lg-8">
+    <!-- Capabilities Grid -->
+    <div class="row justify-content-center text-center mt-4 mb-4">
+        <div class="col-12 col-lg-8">
             <span class="badge bg-secondary-subtle text-dark border border-secondary-subtle px-3 py-1 rounded-pill small fw-semibold text-uppercase tracking-wider">
-                Core Capabilities
+                Platform Architecture
             </span>
-            <h2 class="display-6 fw-bold text-dark mt-2 mb-3">
-                Architected for High-Frequency Institutional Trade Desks
+            <h2 class="h3 fw-bold text-dark mt-2 mb-2">
+                Engineered for High-Volume Commodity Desks
             </h2>
-            <p class="text-secondary leading-relaxed">
-                LedgerSync bridges trade capture, counterparty agreement, and ops accounting into one unified real-time workflow.
+            <p class="text-secondary small mb-0">
+                Unifying trade capture, counterparty sign-off, and operational reconciliation into a single workflow.
             </p>
         </div>
     </div>
 
-    <div class="row g-4 mb-5">
-        <!-- Highlight Card 1 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-primary bg-opacity-10 text-primary d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-file-earmark-check fs-3"></i>
+    <div class="row g-3 g-md-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-primary bg-opacity-10 text-primary mb-3 align-self-start">
+                    <i class="bi bi-file-earmark-check fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Dual-Party Contract &amp; Delivery Order Desk</h5>
+                <h6 class="fw-bold text-dark mb-2">Dual-Party Contract Desk</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    Every agricultural commodity trade executed between buyer and seller requires dual sign-off. Discrepancies in price, weighbridge weight, or delivery tenors are halted before committing to company ledgers.
+                    Commodity deals require dual sign-off. Discrepancies in rates, tare weight, or delivery tenors are flagged prior to ledger posting.
                 </p>
-                <div class="pt-3 border-top">
+                <div class="pt-2 border-top">
                     <a class="text-primary text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1" asp-controller="Deals" asp-action="Create">
-                        <span>Capture Deal on Desk</span>
+                        <span>Capture Deal</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Highlight Card 2 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-info bg-opacity-10 text-info d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-calculator-fill fs-3 text-info"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-info bg-opacity-10 text-info mb-3 align-self-start">
+                    <i class="bi bi-calculator-fill fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Autonomous Tally Desk</h5>
+                <h6 class="fw-bold text-dark mb-2">Autonomous Tally Desk</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    Continuous reconciliation micro-services scan open bilateral positions, highlighting variance deltas, break categories, and settlement mismatches instantly.
+                    Continuous reconciliation checks open bilateral positions, surfacing variance deltas and settlement breaks instantly.
                 </p>
-                <div class="pt-3 border-top">
-                    <a class="text-info text-dark text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1" asp-controller="Reconciliation" asp-action="Index">
+                <div class="pt-2 border-top">
+                    <a class="text-dark text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1" asp-controller="Reconciliation" asp-action="Index">
                         <span>Review Tally Exceptions</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -446,110 +450,106 @@
             </div>
         </div>
 
-        <!-- Highlight Card 3 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-success bg-opacity-10 text-success d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-buildings-fill fs-3"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-success bg-opacity-10 text-success mb-3 align-self-start">
+                    <i class="bi bi-buildings-fill fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Multi-Tenant Isolation</h5>
+                <h6 class="fw-bold text-dark mb-2">Multi-Tenant Isolation</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    Institutional security with strict organizational tenant boundaries. Desks, counterparties, brokers, and external auditors operate with strict data fencing and granular role permissions.
+                    Tenant boundaries protect operational data. Desks, brokers, and auditors operate with strict data fencing and role boundaries.
                 </p>
-                <div class="pt-3 border-top">
+                <div class="pt-2 border-top">
                     <a class="text-success text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1" asp-controller="Account" asp-action="Register">
-                        <span>Onboard Your Organization</span>
+                        <span>Register Organization</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Highlight Card 4 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-warning bg-opacity-10 text-warning d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-truck-front fs-3 text-warning"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-warning bg-opacity-10 text-warning mb-3 align-self-start">
+                    <i class="bi bi-truck-front fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Weighbridge Shortage &amp; Freight Adjustment Engine</h5>
+                <h6 class="fw-bold text-dark mb-2">Weighbridge &amp; Freight Engine</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    Automated reconciliation between origin dispatch and destination weighbridge weights, moisture allowances, tare penalties, and agreed freight advances.
+                    Calculates origin dispatch vs destination weighbridge variances, moisture deductions, and freight differentials automatically.
                 </p>
-                <div class="pt-3 border-top">
-                    <span class="badge bg-secondary-subtle text-dark small">Auto-Variance Calculator</span>
+                <div class="pt-2 border-top">
+                    <span class="badge bg-secondary-subtle text-dark small">Automated Tolerance Rules</span>
                 </div>
             </div>
         </div>
 
-        <!-- Highlight Card 5 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-danger bg-opacity-10 text-danger d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-exclamation-diamond-fill fs-3"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-danger bg-opacity-10 text-danger mb-3 align-self-start">
+                    <i class="bi bi-exclamation-diamond-fill fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Instant Dispute Arbitration</h5>
+                <h6 class="fw-bold text-dark mb-2">Instant Dispute Arbitration</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    When a bilateral discrepancy is surfaced by the Tally Desk, both institutions receive synchronized break alerts with annotated transaction diffs for single-click resolution.
+                    Surfaces discrepancy alerts to both counterparties with line-item audit differences for prompt trade resolution.
                 </p>
-                <div class="pt-3 border-top">
-                    <span class="badge bg-secondary-subtle text-dark small">Auto-Escalation SLAs</span>
+                <div class="pt-2 border-top">
+                    <span class="badge bg-secondary-subtle text-dark small">Bilateral Break Notifications</span>
                 </div>
             </div>
         </div>
 
-        <!-- Highlight Card 6 -->
-        <div class="col-md-6 col-lg-4">
-            <div class="ls-card p-4 h-100 d-flex flex-column">
-                <div class="rounded-3 p-3 bg-indigo bg-opacity-10 text-primary d-inline-block mb-3" style="width: fit-content;">
-                    <i class="bi bi-journal-check fs-3"></i>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 h-100 d-flex flex-column">
+                <div class="rounded-3 p-2 bg-dark bg-opacity-10 text-dark mb-3 align-self-start">
+                    <i class="bi bi-journal-check fs-4"></i>
                 </div>
-                <h5 class="fw-bold text-dark mb-2">Immutable Audit Ledger</h5>
+                <h6 class="fw-bold text-dark mb-2">Immutable Audit Ledger</h6>
                 <p class="text-secondary small leading-relaxed flex-grow-1">
-                    Full lifecycle traceability. Track draft proposals, counter-offers, signatures, amendment revisions, and final delivery notices in an unalterable append-only audit log.
+                    Full trade lifecycle traceability tracking initial proposals, counterpart acceptances, and weighment slips in an append-only log.
                 </p>
-                <div class="pt-3 border-top">
-                    <span class="badge bg-secondary-subtle text-dark small">SOC2 Compliant Logs</span>
+                <div class="pt-2 border-top">
+                    <span class="badge bg-secondary-subtle text-dark small">Complete Audit Trail</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Enterprise Settlement Workflow Strip -->
-    <div class="p-4 p-md-5 rounded-4 bg-dark text-white mb-5 shadow-sm">
-        <div class="row align-items-center gy-4">
-            <div class="col-lg-4">
-                <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill mb-2">Standard Operating Flow</span>
-                <h3 class="fw-bold mb-2">How Dual-Party Settlement Operates</h3>
-                <p class="text-secondary small mb-0">Four continuous stages guaranteeing zero unreconciled trade breaks across counterparty ledgers.</p>
+    <!-- Operational Flow Strip -->
+    <div class="p-3 p-md-4 rounded-4 bg-dark text-white mb-5 shadow-sm">
+        <div class="row align-items-center gy-3">
+            <div class="col-12 col-lg-4">
+                <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill mb-2">Operating Flow</span>
+                <h4 class="fw-bold mb-1">Dual-Party Settlement Workflow</h4>
+                <p class="text-secondary small mb-0">Four automated stages preventing post-trade discrepancies.</p>
             </div>
-            <div class="col-lg-8">
-                <div class="row g-3">
+            <div class="col-12 col-lg-8">
+                <div class="row g-2">
                     <div class="col-6 col-md-3">
                         <div class="p-3 rounded-3 bg-black bg-opacity-50 border border-secondary border-opacity-25 h-100">
                             <span class="badge bg-info text-dark rounded-circle p-2 mb-2">01</span>
                             <div class="fw-semibold text-white small mb-1">Deal Capture</div>
-                            <div class="text-secondary" style="font-size: 0.78rem;">Trade terms, rates &amp; tenors entered at Deal Desk.</div>
+                            <div class="text-secondary" style="font-size: 0.75rem;">Price &amp; quantity logged.</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="p-3 rounded-3 bg-black bg-opacity-50 border border-secondary border-opacity-25 h-100">
                             <span class="badge bg-info text-dark rounded-circle p-2 mb-2">02</span>
                             <div class="fw-semibold text-white small mb-1">Dual Sign-off</div>
-                            <div class="text-secondary" style="font-size: 0.78rem;">Counterparty confirms and approves delivery order voucher.</div>
+                            <div class="text-secondary" style="font-size: 0.75rem;">Counterparty confirms order.</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="p-3 rounded-3 bg-black bg-opacity-50 border border-secondary border-opacity-25 h-100">
                             <span class="badge bg-info text-dark rounded-circle p-2 mb-2">03</span>
                             <div class="fw-semibold text-white small mb-1">Tally Engine</div>
-                            <div class="text-secondary" style="font-size: 0.78rem;">Continuous invariant matching verifies 0 delta balance.</div>
+                            <div class="text-secondary" style="font-size: 0.75rem;">Detects tare &amp; rate deltas.</div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="p-3 rounded-3 bg-black bg-opacity-50 border border-secondary border-opacity-25 h-100">
                             <span class="badge bg-success text-white rounded-circle p-2 mb-2">04</span>
                             <div class="fw-semibold text-white small mb-1">Final Sync</div>
-                            <div class="text-secondary" style="font-size: 0.78rem;">Immutable commitment to both institutional books.</div>
+                            <div class="text-secondary" style="font-size: 0.75rem;">Ledgers updated concurrently.</div>
                         </div>
                     </div>
                 </div>
@@ -557,16 +557,16 @@
         </div>
     </div>
 
-    <!-- Call to Action Banner -->
-    <div class="text-center py-5 px-3 rounded-4 bg-light border border-secondary-subtle">
-        <h3 class="fw-bold text-dark mb-2">Ready to Standardize Your Bilateral Trade Settlement?</h3>
-        <p class="text-secondary mb-4 mx-auto" style="max-width: 600px;">
-            Join over 1,200 trading desks and financial counterparties using LedgerSync to automate trade confirmation and eliminate post-trade ledger friction.
+    <!-- Bottom Call To Action -->
+    <div class="text-center py-4 px-3 rounded-4 bg-light border border-secondary-subtle">
+        <h4 class="fw-bold text-dark mb-2">Streamline Bilateral Trade Settlement</h4>
+        <p class="text-secondary small mb-3 mx-auto" style="max-width: 540px;">
+            Eliminate trade breaks, automate counterparty verification, and standardize weighbridge variance tracking.
         </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
             <a class="btn btn-primary px-4 py-2 rounded-pill fw-semibold shadow-sm d-flex align-items-center gap-2" asp-controller="Account" asp-action="Register">
                 <i class="bi bi-building-add"></i>
-                <span>Register Tenant Organization</span>
+                <span>Register Tenant</span>
             </a>
             <a class="btn btn-outline-dark px-4 py-2 rounded-pill fw-medium d-flex align-items-center gap-2" asp-controller="Account" asp-action="Login">
                 <i class="bi bi-box-arrow-in-right"></i>
@@ -580,7 +580,6 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Interactive Invariant Verification Simulation
             const verifyBtn = document.getElementById('btnRunVerification');
             const verifyIcon = document.getElementById('verificationIcon');
             const verifyStatus = document.getElementById('verificationStatus');
@@ -590,14 +589,14 @@
                 verifyBtn.addEventListener('click', function () {
                     verifyIcon.classList.add('spinner-border', 'spinner-border-sm');
                     verifyIcon.classList.remove('bi-arrow-repeat');
-                    verifyStatus.textContent = 'Verifying Double-Entry Vouchers...';
+                    verifyStatus.textContent = 'Verifying Vouchers...';
                     verifyBtn.disabled = true;
 
                     setTimeout(function () {
                         verifyIcon.classList.remove('spinner-border', 'spinner-border-sm');
                         verifyIcon.classList.add('bi-check-circle-fill', 'text-success');
-                        verifyStatus.textContent = 'Double-Entry Vouchers Matched (0 Deltas)';
-                        verifyDetails.innerHTML = '<span class="badge bg-success text-white">Ledger Reconciled &bull; 0 Discrepancy Deltas</span>';
+                        verifyStatus.textContent = 'Matched (0 Deltas)';
+                        verifyDetails.innerHTML = '<span class="badge bg-success text-white">Reconciled &bull; 0 Deltas</span>';
                         verifyBtn.classList.remove('btn-outline-dark');
                         verifyBtn.classList.add('btn-outline-success');
 
@@ -605,10 +604,10 @@
                             verifyBtn.disabled = false;
                             verifyIcon.classList.remove('bi-check-circle-fill', 'text-success');
                             verifyIcon.classList.add('bi-arrow-repeat');
-                            verifyStatus.textContent = 'Re-Run Voucher Verification';
+                            verifyStatus.textContent = 'Re-Run Verification';
                             verifyBtn.classList.remove('btn-outline-success');
                             verifyBtn.classList.add('btn-outline-dark');
-                        }, 4000);
+                        }, 3500);
                     }, 800);
                 });
             }

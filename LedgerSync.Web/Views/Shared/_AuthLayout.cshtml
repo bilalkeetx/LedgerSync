@@ -2,34 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>@ViewData["Title"] - LedgerSync</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <style>
-        body { background-color: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .auth-box { width: 100%; max-width: 480px; padding: 2rem 1rem; }
-        .card { border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        body { 
+            background-color: #f8fafc; 
+        }
+        .auth-container { 
+            width: 100%; 
+            max-width: 520px; 
+        }
     </style>
 </head>
-<body>
-    <div class="auth-box">
-        <div class="text-center mb-4">
-            <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-dark d-inline-flex align-items-center gap-2">
-                <i class="bi bi-intersect text-primary fs-3"></i>
-                <span class="fs-4 fw-bold">LedgerSync</span>
-            </a>
-            <p class="text-muted small mt-1">Commodity Brokerage Settlement Portal</p>
-        </div>
+<body class="d-flex flex-column min-vh-100 justify-content-center py-4 py-md-5">
 
-        <div class="card p-4 bg-white">
-            @RenderBody()
-        </div>
+    <main class="container d-flex justify-content-center align-items-center">
+        <div class="auth-container px-2 px-sm-3">
+            
+            <!-- Branding Header -->
+            <div class="text-center mb-4">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-dark d-inline-flex align-items-center gap-2">
+                    <span class="badge bg-primary text-white p-2 rounded-circle">
+                        <i class="bi bi-intersect fs-5"></i>
+                    </span>
+                    <span class="fs-4 fw-bold tracking-tight">LedgerSync</span>
+                </a>
+                <p class="text-secondary small mt-1 mb-0">Bilateral Commodity Settlement &amp; Tally Desk</p>
+            </div>
 
-        <div class="text-center mt-3 text-muted small">
-            &copy; 2026 LedgerSync Systems.
+            <!-- Card Container -->
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-3 p-sm-4 p-md-4">
+                @RenderBody()
+            </div>
+
+            <!-- Global Footer Note -->
+            <div class="text-center mt-4 text-muted small" style="font-size: 0.8rem;">
+                &copy; 2026 LedgerSync Systems &bull; Institutional Multi-Party Ledger
+            </div>
+
         </div>
-    </div>
+    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

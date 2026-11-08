@@ -1,6 +1,56 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Data Privacy & Trade Confidentiality";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container-fluid px-3 px-md-4 py-3 py-md-4">
+
+    <!-- Breadcrumb & Header -->
+    <div class="mb-4 pb-3 border-bottom">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-1 small">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Privacy Policy</li>
+            </ol>
+        </nav>
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <div>
+                <h1 class="h3 fw-bold text-dark mb-1">Data Privacy &amp; Trade Confidentiality</h1>
+                <p class="text-secondary small mb-0">Institutional trade data security and bilateral confidentiality protocols.</p>
+            </div>
+            <span class="badge bg-secondary-subtle text-dark border px-3 py-1 rounded-pill small">
+                Effective: Fiscal Year 2026–2027
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Content Cards -->
+    <div class="row g-3 g-md-4">
+        
+        <div class="col-12 col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white mb-3">
+                <h5 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-shield-lock text-primary"></i>
+                    <span>1. Bilateral Counterparty Isolation</span>
+                </h5>
+                <p class="text-secondary small leading-relaxed mb-0">
+                    Trade deals, weighbridge tickets, pricing matrices, and voucher reconciliations are strictly isolated per tenant boundary. Data generated between bilateral counterparties (e.g., Buyer Desk and Seller Desk) is accessible solely to authorized operator roles of the designated organizations.
+                </p>
+            </div>
+
+            <div class="card-0 border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white mb-3">
+                <h5 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-file-earmark-lock text-info"></i>
+                    <span>2. Weighment &amp; Logistics Data Protection</span>
+                </h5>
+                <p class="text-secondary small leading-relaxed mb-0">
+                    Vehicle registration numbers, weighbridge tare/gross receipts, driver consignments, and freight disbursement records are retained within encrypted relational storage. No identifiable freight logistics details are commercialized or shared with third-party logistics aggregators.
+                </p>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 bg-white mb-3">
+                <h5 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                    <i class="bi bi-journal-check text-success"></i>
+                    <span>3. Immutable Double-Entry Audit Logs</span>
+                </h5>
+                <p class="text-secondary small leading-relaxed mb-0">
+                    All contract acceptances, delivery order vouchers, and variance settlements are logged in an append-only audit trail. This ensures verifiable non-repudiation between trading
